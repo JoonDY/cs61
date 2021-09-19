@@ -110,7 +110,7 @@ def swine_align(player_score, opponent_score):
     a = player_score
     b = opponent_score
 
-    if a==0 or b==0:
+    if (a==0) or (b==0):
         return False
 
     while b:
@@ -185,15 +185,49 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
     goal:       The game ends and someone wins when this score is reached.
     say:        The commentary function to call at the end of the first turn.
     """
-    who = 0  # Who is about to take a turn, 0 (first) or 1 (second)
+
     # BEGIN PROBLEM 5
     "*** YOUR CODE HERE ***"
+    
+    player, player_score, opponent_score = 0, score0, score1
+
+    while (score0 < goal) & (score1 < goal):
+        rolls = 0
+
+        if player == 0:
+            player_score, opponent_score = score0, score1 
+            rolls = strategy0(player_score, opponent_score)
+        else:
+            player_score, opponent_score = score1, score0 
+            rolls = strategy1(player_score, opponent_score)
+
+        player_score += take_turn(rolls, opponent_score, dice)
+
+        extra_turn_value = extra_turn(player_score, opponent_score)
+ 
+        while extra_turn_value == True:
+            player_score += take_turn(rolls, opponent_score, dice)
+            extra_turn_value = extra_turn(player_score, opponent_score)
+            if (player_score >= goal):
+                break
+
+        if player == 0:
+            score0 = player_score
+        else:
+            score1 = player_score        
+        
+        player = other(player)
+    
+
+
     # END PROBLEM 5
     # (note that the indentation for the problem 6 prompt (***YOUR CODE HERE***) might be misleading)
     # BEGIN PROBLEM 6
     "*** YOUR CODE HERE ***"
     # END PROBLEM 6
     return score0, score1
+
+
 
 
 #######################
@@ -401,6 +435,7 @@ def final_strategy(score, opponent_score):
     # BEGIN PROBLEM 12
     return 6  # Replace this statement
     # END PROBLEM 12
+
 
 ##########################
 # Command Line Interface #
