@@ -127,14 +127,12 @@ test = {
           >>> strat1 = lambda score, opponent: max((score // 10) - 4, 0)
           >>> s0, s1 = hog.play(strat0, strat1, score0=71, score1=80, dice=always_seven)
           >>> s0
-          03f84ad87569499dc2c6ad5123dd852a
-          # locked
+          83
           >>> s1
-          c8735a01952a81cf365b4c80d8fbb832
-          # locked
+          108
           """,
           'hidden': False,
-          'locked': True
+          'locked': False
         }
       ],
       'scored': True,
