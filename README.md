@@ -3,10 +3,10 @@
 ### Concepts Learned
 - Variables
 - Functions
-- Lambda
+- Unnamed Functions(Lambda)
 - Control
 - Higher-Order Functions
-- Environment
+- Environment(Scope)
 
 ### Projects
 - Hog Game
