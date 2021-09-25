@@ -488,16 +488,16 @@ def final_strategy(score, opponent_score):
     """
     # BEGIN PROBLEM 12
 
-    optimal_cutoff = 9
-    optimal_rolls = 6
+    # optimal_cutoff = 9
+    # optimal_rolls = 6
     
-    if GOAL_SCORE - score < optimal_cutoff:
-        optimal_cutoff = GOAL_SCORE - score
+    # if GOAL_SCORE - score < optimal_cutoff:
+    #     optimal_cutoff = GOAL_SCORE - score
 
-    if score > opponent_score:
-        optimal_rolls = 
+    # if score > opponent_score:
+    #     optimal_rolls = 
     
-    return extra_turn_strategy(score, opponent_score, optimal_cutoff, optimal_rolls)
+    # return extra_turn_strategy(score, opponent_score, optimal_cutoff, optimal_rolls)
 
     # END PROBLEM 12
 
