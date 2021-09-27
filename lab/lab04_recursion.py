@@ -1,7 +1,5 @@
 LAB_SOURCE_FILE = __file__
 
-
-
 this_file = __file__
 
 def skip_add(n):
@@ -18,7 +16,7 @@ def skip_add(n):
     ...       ['While', 'For'])
     True
     """
-    "*** YOUR CODE HERE ***"
+
     if n <= 0:
         return 0
     else:
@@ -47,14 +45,15 @@ def summation(n, term):
     True
     """
     assert n >= 1
-    "*** YOUR CODE HERE ***"
 
     if n == 1:
         return term(n)
     else:
         return term(n) + summation(n-1, term)
 
+
 # print(summation(9, lambda x: x + 1))
+
 
 def paths(m, n):
     """Return the number of paths from one corner of an
@@ -69,7 +68,6 @@ def paths(m, n):
     >>> paths(1, 157)
     1
     """
-    "*** YOUR CODE HERE ***"
 
     if m == 1:
         return 1
@@ -82,6 +80,7 @@ def paths(m, n):
     
 
 # print(paths(5, 7))
+
 
 def max_subseq(n, t):
     """
@@ -127,7 +126,6 @@ def max_subseq(n, t):
     >>> max_subseq(12345, 1)
     5
     """
-    "*** YOUR CODE HERE ***"
 
     if n == 0 or t == 0:
        return 0
@@ -139,9 +137,7 @@ def max_subseq(n, t):
         return no
 
 
-
 # print(max_subseq(20125, 3))
-
 
 
 def add_chars(w1, w2):
@@ -170,7 +166,6 @@ def add_chars(w1, w2):
     ...       ['For', 'While', 'Set', 'SetComp']) # Must use recursion
     True
     """
-    "*** YOUR CODE HERE ***"
 
     # w1 = list(w1)
     # w2 = list(w2)
@@ -191,6 +186,5 @@ def add_chars(w1, w2):
         else:
             return w2[0] + add_chars(w1, w2[1:])
                 
-
     
-# print(add_chars("owl", "howl"))
+print(add_chars("owl", "howl"))

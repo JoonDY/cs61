@@ -51,7 +51,6 @@ def largest_factor(x):
     >>> largest_factor(13) # factor is 1 since 13 is prime
     1
     """
-    "*** YOUR CODE HERE ***"
 
     i = 2
     factors = [1]
@@ -89,6 +88,7 @@ def with_if_statement():
     >>> print(result)
     None
     """
+
     if c():
         return t()
     else:
@@ -128,7 +128,7 @@ def hailstone(x):
     >>> a
     7
     """
-    "*** YOUR CODE HERE ***"
+
 
     i = 1
     print(x)

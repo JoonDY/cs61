@@ -36,7 +36,6 @@ def sum_digits(y):
     6
     """
 
-
     sum = 0
     while y > 0:
         if y == 1:
@@ -81,8 +80,3 @@ def double_eights(n):
          
 
     return False 
-   
-   
-    
-    
-    

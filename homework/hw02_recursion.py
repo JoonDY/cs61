@@ -22,9 +22,6 @@ def num_eights(x):
     ...       ['Assign', 'AugAssign'])
     True
     """
-    "*** YOUR CODE HERE ***"
-
-    
 
     if x < 10: 
         if x == 8:
@@ -71,7 +68,6 @@ def pingpong(n):
     >>> check(HW_SOURCE_FILE, 'pingpong', ['Assign', 'AugAssign'])
     True
     """
-    "*** YOUR CODE HERE ***"
         
     def helper(result=1, i=1, direction=1):
         if i == n:
@@ -114,7 +110,6 @@ def missing_digits(n):
     >>> check(HW_SOURCE_FILE, 'missing_digits', ['While', 'For'])
     True
     """
-    "*** YOUR CODE HERE ***"
 
     # With helper function
 
@@ -149,6 +144,7 @@ def next_largest_coin(coin):
     25
     >>> next_largest_coin(2) # Other values return None
     """
+
     if coin == 1:
         return 5
     elif coin == 5:
@@ -179,7 +175,6 @@ def count_coins(total):
     >>> check(HW_SOURCE_FILE, 'count_coins', ['While', 'For'])                                          
     True
     """
-    "*** YOUR CODE HERE ***"
 
     def helper(total, coin):
         if total == 0:
@@ -211,4 +206,3 @@ def make_anonymous_factorial():
     """
 
     # return lambda b: (lambda a, b: a(a, b))(lambda a, b: b*a(a, b-1) if b > 0 else 1,b)
-
