@@ -276,19 +276,27 @@ def fastest_words(game):
     player_indices = range(len(all_times(game)))
     word_indices = range(len(all_words(game)))
 
-    results = []
-    winners = []
-    for word in word_indices:
-        player_times = []
-        for player in player_indices:
-            player_times.append(time(game, player, word))
-        winners.append(player_times.index(min(player_times)))
+    # winners = []
+    # for word in word_indices:
+    #     player_times = []
+    #     for player in player_indices:
+    #         player_times.append(time(game, player, word))
+    #     winners.append(player_times.index(min(player_times)))
 
+    # for player in player_indices:
+    #     wins = []
+    #     for i in range(0, len(winners)):
+    #         if player == winners[i]:
+    #             wins.append(word_at(game, i))
+    #     results.append(wins)
+
+    results = []
     for player in player_indices:
         wins = []
-        for i in range(0, len(winners)):
-            if player == winners[i]:
-                wins.append(word_at(game, i))
+        for word in word_indices:
+            winner = all_times(game).index(min(all_times(game), key=lambda x: x[word]))
+            if player == winner:
+                wins.append(word_at(game, word))
         results.append(wins)
 
     return results
