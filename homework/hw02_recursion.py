@@ -23,6 +23,10 @@ def num_eights(x):
     True
     """
 
+    ###############
+    # My Solution #
+    ###############
+
     if x < 10: 
         if x == 8:
             return 1
@@ -68,6 +72,10 @@ def pingpong(n):
     >>> check(HW_SOURCE_FILE, 'pingpong', ['Assign', 'AugAssign'])
     True
     """
+
+    ###############
+    # My Solution #
+    ###############
         
     def helper(result=1, i=1, direction=1):
         if i == n:
@@ -111,6 +119,10 @@ def missing_digits(n):
     True
     """
 
+    ###############
+    # My Solution #
+    ###############
+
     # With helper function
 
     # def helper(previous, current, count, n):
@@ -153,6 +165,11 @@ def next_largest_coin(coin):
         return 25
 
 def next_smallest_coin(coin):
+
+    ###############
+    # My Solution #
+    ###############
+
     if coin == 25:
         return 10
     elif coin == 10:
@@ -175,6 +192,10 @@ def count_coins(total):
     >>> check(HW_SOURCE_FILE, 'count_coins', ['While', 'For'])                                          
     True
     """
+
+    ###############
+    # My Solution #
+    ###############
 
     def helper(total, coin):
         if total == 0:
@@ -204,5 +225,5 @@ def make_anonymous_factorial():
     >>> check(HW_SOURCE_FILE, 'make_anonymous_factorial', ['Assign', 'AugAssign', 'FunctionDef', 'Recursion'])
     True
     """
-
+    
     # return lambda b: (lambda a, b: a(a, b))(lambda a, b: b*a(a, b-1) if b > 0 else 1,b)

@@ -17,13 +17,15 @@ def skip_add(n):
     True
     """
 
+    ###############
+    # My Solution #
+    ###############
+
     if n <= 0:
         return 0
     else:
         return n + skip_add(n-2)
 
-
-# print(skip_add(10))
 
 
 def summation(n, term):
@@ -44,6 +46,11 @@ def summation(n, term):
     ...       ['While', 'For'])
     True
     """
+
+    ###############
+    # My Solution #
+    ###############
+
     assert n >= 1
 
     if n == 1:
@@ -52,7 +59,7 @@ def summation(n, term):
         return term(n) + summation(n-1, term)
 
 
-# print(summation(9, lambda x: x + 1))
+
 
 
 def paths(m, n):
@@ -69,6 +76,10 @@ def paths(m, n):
     1
     """
 
+    ###############
+    # My Solution #
+    ###############
+
     if m == 1:
         return 1
     elif n == 1:
@@ -79,7 +90,7 @@ def paths(m, n):
         return up + right
     
 
-# print(paths(5, 7))
+
 
 
 def max_subseq(n, t):
@@ -127,6 +138,10 @@ def max_subseq(n, t):
     5
     """
 
+    ###############
+    # My Solution #
+    ###############
+
     if n == 0 or t == 0:
        return 0
     yes = max_subseq(n//10, t-1) * 10 + n % 10
@@ -137,7 +152,6 @@ def max_subseq(n, t):
         return no
 
 
-# print(max_subseq(20125, 3))
 
 
 def add_chars(w1, w2):
@@ -167,6 +181,10 @@ def add_chars(w1, w2):
     True
     """
 
+    ###############
+    # My Solution #
+    ###############
+
     # w1 = list(w1)
     # w2 = list(w2)
 
@@ -186,5 +204,3 @@ def add_chars(w1, w2):
         else:
             return w2[0] + add_chars(w1, w2[1:])
                 
-    
-print(add_chars("owl", "howl"))

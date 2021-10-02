@@ -10,6 +10,10 @@ def falling(n, k):
     >>> falling(4, 0)
     1
     """
+
+    ###############
+    # My Solution #
+    ###############
     
     total = 1
     i = 0
@@ -36,6 +40,10 @@ def sum_digits(y):
     6
     """
 
+    ###############
+    # My Solution #
+    ###############
+
     sum = 0
     while y > 0:
         if y == 1:
@@ -61,6 +69,10 @@ def double_eights(n):
     >>> double_eights(80808080)
     False
     """
+
+    ###############
+    # My Solution #
+    ###############
 
     previousNum = 0
     currentNum = 0

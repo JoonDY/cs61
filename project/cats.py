@@ -16,6 +16,10 @@ def choose(paragraphs, select, k):
     the empty string.
     """
 
+    ###############
+    # My Solution #
+    ###############
+
     paragraphs = list(filter(select, paragraphs))
     
     if len(paragraphs) <= k:
@@ -34,6 +38,11 @@ def about(topic):
     >>> choose(['Cute Dog!', 'That is a cat.', 'Nice pup.'], about_dogs, 1)
     'Nice pup.'
     """
+
+    ###############
+    # My Solution #
+    ###############
+
     assert all([lower(x) == x for x in topic]), 'topics should be lowercase.'
 
     def select(paragraph):
@@ -64,6 +73,11 @@ def accuracy(typed, reference):
     >>> accuracy('', 'Cute Dog.')
     0.0
     """
+
+    ###############
+    # My Solution #
+    ###############
+
     typed_words = split(typed)
     reference_words = split(reference)
 
@@ -85,6 +99,11 @@ def accuracy(typed, reference):
 
 def wpm(typed, elapsed):
     """Return the words-per-minute (WPM) of the TYPED string."""
+
+    ###############
+    # My Solution #
+    ###############
+
     assert elapsed > 0, 'Elapsed time must be positive'
 
     num_chars = len(typed)
@@ -100,6 +119,10 @@ def autocorrect(user_word, valid_words, diff_function, limit):
     from USER_WORD. Instead returns USER_WORD if that difference is greater
     than LIMIT.
     """
+
+    ###############
+    # My Solution #
+    ###############
 
     if user_word in valid_words:
         return user_word
@@ -121,6 +144,10 @@ def shifty_shifts(start, goal, limit):
     in START need to be substituted to create GOAL, then adds the difference in
     their lengths.
     """
+
+    ###############
+    # My Solution #
+    ###############
 
     len_diff = 0
     if len(start) != len(goal):
@@ -144,6 +171,10 @@ def shifty_shifts(start, goal, limit):
 
 def pawssible_patches(start, goal, limit):
     """A diff function that computes the edit distance from START to GOAL."""
+
+    ###############
+    # My Solution #
+    ###############
 
     if limit < 0:
         return 0
@@ -174,6 +205,10 @@ def final_diff(start, goal, limit):
 
 def report_progress(typed, prompt, user_id, send):
     """Send a report of your id and progress so far to the multiplayer server."""
+
+    ###############
+    # My Solution #
+    ###############
 
     correct = 0
     for i in range(0, len(typed)):
@@ -213,6 +248,11 @@ def time_per_word(times_per_player, words):
                           the player finished typing each word.
         words: a list of words, in the order they are typed.
     """
+
+    ###############
+    # My Solution #
+    ###############
+
     times = []
     for i in range(0, len(times_per_player)):
         player = []
@@ -273,6 +313,11 @@ def fastest_words(game):
     Returns:
         a list of lists containing which words each player typed fastest
     """
+
+    ###############
+    # My Solution #
+    ###############
+
     player_indices = range(len(all_times(game)))
     word_indices = range(len(all_words(game)))
 

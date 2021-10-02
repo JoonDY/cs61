@@ -14,6 +14,11 @@ def a_plus_abs_b(a, b):
     >>> re.findall(r'^\s*(return .*)', inspect.getsource(a_plus_abs_b), re.M)
     ['return h(a, b)']
     """
+
+    ###############
+    # My Solution #
+    ###############
+
     if b >= 0:
         h = add
     else:
@@ -39,6 +44,10 @@ def two_of_three(x, y, z):
     ['Expr', 'Return']
     """
 
+    ###############
+    # My Solution #
+    ###############
+
     return min(x**2+y**2, x**2+z**2, y**2+z**2)
 
 def largest_factor(x):
@@ -52,6 +61,10 @@ def largest_factor(x):
     1
     """
 
+    ###############
+    # My Solution #
+    ###############
+    
     i = 2
     factors = [1]
     while i < x:
@@ -129,6 +142,9 @@ def hailstone(x):
     7
     """
 
+    ###############
+    # My Solution #
+    ###############
 
     i = 1
     print(x)

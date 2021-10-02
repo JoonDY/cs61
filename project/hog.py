@@ -19,6 +19,10 @@ def roll_dice(num_rolls, dice=six_sided):
     dice:       A function that simulates a single dice roll outcome.
     """
 
+    ###############
+    # My Solution #
+    ###############
+
     assert type(num_rolls) == int, 'num_rolls must be an integer.'
     assert num_rolls > 0, 'Must roll at least once.'
 
@@ -44,6 +48,11 @@ def free_bacon(score):
 
     score:  The opponent's current score.
     """
+
+    ###############
+    # My Solution #
+    ###############
+
     assert score < 100, 'The game should be over.'
     pi = FIRST_101_DIGITS_OF_PI
 
@@ -62,6 +71,10 @@ def take_turn(num_rolls, opponent_score, dice=six_sided):
     dice:            A function that simulates a single dice roll outcome.
     """
 
+    ###############
+    # My Solution #
+    ###############
+
     assert type(num_rolls) == int, 'num_rolls must be an integer.'
     assert num_rolls >= 0, 'Cannot roll a negative number of dice in take_turn.'
     assert num_rolls <= 10, 'Cannot roll more than 10 dice.'
@@ -75,6 +88,11 @@ def take_turn(num_rolls, opponent_score, dice=six_sided):
 
 def extra_turn(player_score, opponent_score):
     """Return whether the player gets an extra turn."""
+
+    ###############
+    # My Solution #
+    ###############
+
     return (pig_pass(player_score, opponent_score) or
             swine_align(player_score, opponent_score))
 
@@ -90,6 +108,10 @@ def swine_align(player_score, opponent_score):
     >>> swine_align(35, 45)  # The GCD is 5.
     False
     """
+
+    ###############
+    # My Solution #
+    ###############
 
     a = player_score
     b = opponent_score
@@ -124,6 +146,10 @@ def pig_pass(player_score, opponent_score):
     >>> pig_pass(13, 12)
     False
     """
+
+    ###############
+    # My Solution #
+    ###############
 
     if (player_score < opponent_score) & (opponent_score-player_score < 3):
         return True
@@ -164,6 +190,10 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
     goal:       The game ends and someone wins when this score is reached.
     say:        The commentary function to call at the end of the first turn.
     """
+
+    ###############
+    # My Solution #
+    ###############
     
     player, player_score, opponent_score = 0, score0, score1
     commentary = say
@@ -226,6 +256,11 @@ def announce_lead_changes(last_leader=None):
     >>> f5 = f4(15, 13)
     Player 0 takes the lead by 2
     """
+
+    ###############
+    # My Solution #
+    ###############
+
     def say(score0, score1):
         if score0 > score1:
             leader = 0
@@ -279,6 +314,11 @@ def announce_highest(who, last_score=0, running_high=0):
     >>> f7 = f6(21, 77)
     30 point(s)! The most yet for Player 1
     """
+
+    ###############
+    # My Solution #
+    ###############
+
     assert who == 0 or who == 1, 'The who argument should indicate a player.'
 
     def say(score0, score1):
@@ -335,6 +375,10 @@ def make_averaged(original_function, trials_count=1000):
     3.0
     """
 
+    ###############
+    # My Solution #
+    ###############
+
     def return_average(*args):
         count = 0
         results = 0
@@ -355,6 +399,10 @@ def max_scoring_num_rolls(dice=six_sided, trials_count=1000):
     >>> max_scoring_num_rolls(dice)
     1
     """
+
+    ###############
+    # My Solution #
+    ###############
 
     best_roll = make_averaged(roll_dice, trials_count)
 
@@ -414,6 +462,10 @@ def bacon_strategy(score, opponent_score, cutoff=8, num_rolls=6):
     rolls NUM_ROLLS otherwise.
     """
 
+    ###############
+    # My Solution #
+    ###############
+
     if free_bacon(opponent_score) >= cutoff:
         return 0
     else:
@@ -425,6 +477,10 @@ def extra_turn_strategy(score, opponent_score, cutoff=8, num_rolls=6):
     rolls 0 dice if it gives at least CUTOFF points and does not give an extra turn.
     Otherwise, it rolls NUM_ROLLS.
     """
+
+    ###############
+    # My Solution #
+    ###############
 
     score_after_bacon = score + free_bacon(opponent_score)
 
