@@ -101,13 +101,7 @@ def swine_align(player_score, opponent_score):
     """Return whether the player gets an extra turn due to Swine Align.
 
     player_score:   The total score of the current player.
-    opponent_score: The total score of the other player.
-
-    >>> swine_align(30, 45)  # The GCD is 15.
-    True
-    >>> swine_align(35, 45)  # The GCD is 5.
-    False
-    """
+    opponent_score: The total score of the other player."""
 
     ###############
     # My Solution #
@@ -133,19 +127,7 @@ def pig_pass(player_score, opponent_score):
     """Return whether the player gets an extra turn due to Pig Pass.
 
     player_score:   The total score of the current player.
-    opponent_score: The total score of the other player.
-
-    >>> pig_pass(9, 12)
-    False
-    >>> pig_pass(10, 12)
-    True
-    >>> pig_pass(11, 12)
-    True
-    >>> pig_pass(12, 12)
-    False
-    >>> pig_pass(13, 12)
-    False
-    """
+    opponent_score: The total score of the other player."""
 
     ###############
     # My Solution #
@@ -158,13 +140,7 @@ def pig_pass(player_score, opponent_score):
 
 
 def other(who):
-    """Return the other player, for a player WHO numbered 0 or 1.
-
-    >>> other(0)
-    1
-    >>> other(1)
-    0
-    """
+    """Return the other player, for a player WHO numbered 0 or 1."""
     return 1 - who
 
 
@@ -244,18 +220,7 @@ def say_scores(score0, score1):
 
 
 def announce_lead_changes(last_leader=None):
-    """Return a commentary function that announces lead changes.
-
-    >>> f0 = announce_lead_changes()
-    >>> f1 = f0(5, 0)
-    Player 0 takes the lead by 5
-    >>> f2 = f1(5, 12)
-    Player 1 takes the lead by 7
-    >>> f3 = f2(8, 12)
-    >>> f4 = f3(8, 13)
-    >>> f5 = f4(15, 13)
-    Player 0 takes the lead by 2
-    """
+    """Return a commentary function that announces lead changes."""
 
     ###############
     # My Solution #
@@ -275,21 +240,7 @@ def announce_lead_changes(last_leader=None):
 
 
 def both(f, g):
-    """Return a commentary function that says what f says, then what g says.
-
-    NOTE: the following game is not possible under the rules, it's just
-    an example for the sake of the doctest
-
-    >>> h0 = both(say_scores, announce_lead_changes())
-    >>> h1 = h0(10, 0)
-    Player 0 now has 10 and Player 1 now has 0
-    Player 0 takes the lead by 10
-    >>> h2 = h1(10, 8)
-    Player 0 now has 10 and Player 1 now has 8
-    >>> h3 = h2(10, 17)
-    Player 0 now has 10 and Player 1 now has 17
-    Player 1 takes the lead by 7
-    """
+    """Return a commentary function that says what f says, then what g says."""
     def say(score0, score1):
         return both(f(score0, score1), g(score0, score1))
     return say
@@ -297,23 +248,7 @@ def both(f, g):
 
 def announce_highest(who, last_score=0, running_high=0):
     """Return a commentary function that announces when WHO's score
-    increases by more than ever before in the game.
-
-    NOTE: the following game is not possible under the rules, it's just
-    an example for the sake of the doctest
-
-    >>> f0 = announce_highest(1) # Only announce Player 1 score gains
-    >>> f1 = f0(12, 0)
-    >>> f2 = f1(12, 9)
-    9 point(s)! The most yet for Player 1
-    >>> f3 = f2(20, 9)
-    >>> f4 = f3(20, 30)
-    21 point(s)! The most yet for Player 1
-    >>> f5 = f4(20, 47) # Player 1 gets 17 points; not enough for a new high
-    >>> f6 = f5(21, 47)
-    >>> f7 = f6(21, 77)
-    30 point(s)! The most yet for Player 1
-    """
+    increases by more than ever before in the game."""
 
     ###############
     # My Solution #
@@ -349,14 +284,8 @@ def always_roll(n):
 
     A strategy is a function that takes two total scores as arguments (the
     current player's score, and the opponent's score), and returns a number of
-    dice that the current player will roll this turn.
+    dice that the current player will roll this turn."""
 
-    >>> strategy = always_roll(5)
-    >>> strategy(0, 0)
-    5
-    >>> strategy(99, 99)
-    5
-    """
     def strategy(score, opponent_score):
         return n
     return strategy
@@ -367,13 +296,7 @@ def make_averaged(original_function, trials_count=1000):
     when called.
 
     To implement this function, you will have to use *args syntax, a new Python
-    feature introduced in this project.  See the project description.
-
-    >>> dice = make_test_dice(4, 2, 5, 1)
-    >>> averaged_dice = make_averaged(dice, 1000)
-    >>> averaged_dice()
-    3.0
-    """
+    feature introduced in this project.  See the project description."""
 
     ###############
     # My Solution #
@@ -393,12 +316,7 @@ def make_averaged(original_function, trials_count=1000):
 def max_scoring_num_rolls(dice=six_sided, trials_count=1000):
     """Return the number of dice (1 to 10) that gives the highest average turn
     score by calling roll_dice with the provided DICE over TRIALS_COUNT times.
-    Assume that the dice always return positive outcomes.
-
-    >>> dice = make_test_dice(1, 6)
-    >>> max_scoring_num_rolls(dice)
-    1
-    """
+    Assume that the dice always return positive outcomes."""
 
     ###############
     # My Solution #
@@ -488,23 +406,6 @@ def extra_turn_strategy(score, opponent_score, cutoff=8, num_rolls=6):
         return 0
 
     return bacon_strategy(score, opponent_score, cutoff, num_rolls) 
-
-
-def final_strategy(score, opponent_score):
-    # BEGIN PROBLEM 12
-
-    # optimal_cutoff = 9
-    # optimal_rolls = 6
-    
-    # if GOAL_SCORE - score < optimal_cutoff:
-    #     optimal_cutoff = GOAL_SCORE - score
-
-    # if score > opponent_score:
-    #     optimal_rolls = 
-    
-    # return extra_turn_strategy(score, opponent_score, optimal_cutoff, optimal_rolls)
-
-    # END PROBLEM 12
 
 
 

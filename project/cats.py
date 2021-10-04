@@ -30,14 +30,7 @@ def choose(paragraphs, select, k):
 
 def about(topic):
     """Return a select function that returns whether a paragraph contains one
-    of the words in TOPIC.
-
-    >>> about_dogs = about(['dog', 'dogs', 'pup', 'puppy'])
-    >>> choose(['Cute Dog!', 'That is a cat.', 'Nice pup!'], about_dogs, 0)
-    'Cute Dog!'
-    >>> choose(['Cute Dog!', 'That is a cat.', 'Nice pup.'], about_dogs, 1)
-    'Nice pup.'
-    """
+    of the words in TOPIC."""
 
     ###############
     # My Solution #
@@ -58,21 +51,7 @@ def about(topic):
 
 def accuracy(typed, reference):
     """Return the accuracy (percentage of words typed correctly) of TYPED
-    when compared to the prefix of REFERENCE that was typed.
-
-    >>> accuracy('Cute Dog!', 'Cute Dog.')
-    50.0
-    >>> accuracy('A Cute Dog!', 'Cute Dog.')
-    0.0
-    >>> accuracy('cute Dog.', 'Cute Dog.')
-    50.0
-    >>> accuracy('Cute Dog. I say!', 'Cute Dog.')
-    50.0
-    >>> accuracy('Cute', 'Cute Dog.')
-    100.0
-    >>> accuracy('', 'Cute Dog.')
-    0.0
-    """
+    when compared to the prefix of REFERENCE that was typed."""
 
     ###############
     # My Solution #

@@ -1,7 +1,3 @@
-LAB_SOURCE_FILE = __file__
-
-this_file = __file__
-
 def skip_add(n):
     """ Takes a number n and returns n + n-2 + n-4 + n-6 + ... + 0.
 
@@ -146,12 +142,13 @@ def max_subseq(n, t):
        return 0
     yes = max_subseq(n//10, t-1) * 10 + n % 10
     no = max_subseq(n//10, t)
+    print(yes, no)
     if yes > no:
         return yes
     else:
         return no
 
-
+max_subseq(12345, 3)
 
 
 def add_chars(w1, w2):

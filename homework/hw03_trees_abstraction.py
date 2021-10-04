@@ -1,6 +1,3 @@
-HW_SOURCE_FILE=__file__
-
-
 def mobile(left, right):
     """Construct a mobile from a left arm and a right arm."""
     assert is_arm(left), "left must be a arm"
@@ -74,20 +71,7 @@ def examples():
     return (t, u, v)
 
 def total_weight(m):
-    """Return the total weight of m, a planet or mobile.
-
-    >>> t, u, v = examples()
-    >>> total_weight(t)
-    3
-    >>> total_weight(u)
-    6
-    >>> total_weight(v)
-    9
-    >>> from construct_check import check
-    >>> # checking for abstraction barrier violations by banning indexing
-    >>> check(HW_SOURCE_FILE, 'total_weight', ['Index'])
-    True
-    """
+    """Return the total weight of m, a planet or mobile."""
 
     ###############
     # My Solution #
@@ -100,25 +84,7 @@ def total_weight(m):
         return total_weight(end(left(m))) + total_weight(end(right(m)))
 
 def balanced(m):
-    """Return whether m is balanced.
-
-    >>> t, u, v = examples()
-    >>> balanced(t)
-    True
-    >>> balanced(v)
-    True
-    >>> w = mobile(arm(3, t), arm(2, u))
-    >>> balanced(w)
-    False
-    >>> balanced(mobile(arm(1, v), arm(1, w)))
-    False
-    >>> balanced(mobile(arm(1, w), arm(1, v)))
-    False
-    >>> from construct_check import check
-    >>> # checking for abstraction barrier violations by banning indexing
-    >>> check(HW_SOURCE_FILE, 'balanced', ['Index'])
-    True
-    """
+    """Return whether m is balanced."""
 
     ###############
     # My Solution #
@@ -138,34 +104,7 @@ def balanced(m):
 
 
 def totals_tree(m):
-    """Return a tree representing the mobile with its total weight at the root.
-
-    >>> t, u, v = examples()
-    >>> print_tree(totals_tree(t))
-    3
-      2
-      1
-    >>> print_tree(totals_tree(u))
-    6
-      1
-      5
-        3
-        2
-    >>> print_tree(totals_tree(v))
-    9
-      3
-        2
-        1
-      6
-        1
-        5
-          3
-          2
-    >>> from construct_check import check
-    >>> # checking for abstraction barrier violations by banning indexing
-    >>> check(HW_SOURCE_FILE, 'totals_tree', ['Index'])
-    True
-    """
+    """Return a tree representing the mobile with its total weight at the root."""
 
     ###############
     # My Solution #
@@ -184,34 +123,11 @@ def totals_tree(m):
 
 def replace_leaf(t, find_value, replace_value):
     """Returns a new tree where every leaf value equal to find_value has
-    been replaced with replace_value.
+    been replaced with replace_value."""
 
-    >>> yggdrasil = tree('odin',
-    ...                  [tree('balder',
-    ...                        [tree('thor'),
-    ...                         tree('freya')]),
-    ...                   tree('frigg',
-    ...                        [tree('thor')]),
-    ...                   tree('thor',
-    ...                        [tree('sif'),
-    ...                         tree('thor')]),
-    ...                   tree('thor')])
-    >>> laerad = copy_tree(yggdrasil) # copy yggdrasil for testing purposes
-    >>> print_tree(replace_leaf(yggdrasil, 'thor', 'freya'))
-    odin
-      balder
-        freya
-        freya
-      frigg
-        freya
-      thor
-        sif
-        freya
-      freya
-    >>> laerad == yggdrasil # Make sure original tree is unmodified
-    True
-    """
-    "*** YOUR CODE HERE ***"
+    ###############
+    # My Solution #
+    ###############
 
     if is_leaf(t):
         if label(t) == find_value:
@@ -225,14 +141,7 @@ def replace_leaf(t, find_value, replace_value):
 
 def preorder(t):
     """Return a list of the entries in this tree in the order that they
-    would be visited by a preorder traversal (see problem description).
-
-    >>> numbers = tree(1, [tree(2), tree(3, [tree(4), tree(5)]), tree(6, [tree(7)])])
-    >>> preorder(numbers)
-    [1, 2, 3, 4, 5, 6, 7]
-    >>> preorder(tree(2, [tree(4, [tree(6)])]))
-    [2, 4, 6]
-    """
+    would be visited by a preorder traversal (see problem description)."""
     
     ###############
     # My Solution #
@@ -250,32 +159,7 @@ def preorder(t):
 
 def has_path(t, word):
     """Return whether there is a path in a tree where the entries along the path
-    spell out a particular word.
-
-    >>> greetings = tree('h', [tree('i'),
-    ...                        tree('e', [tree('l', [tree('l', [tree('o')])]),
-    ...                                   tree('y')])])
-    >>> print_tree(greetings)
-    h
-      i
-      e
-        l
-          l
-            o
-        y
-    >>> has_path(greetings, 'h')
-    True
-    >>> has_path(greetings, 'i')
-    False
-    >>> has_path(greetings, 'hi')
-    True
-    >>> has_path(greetings, 'hello')
-    True
-    >>> has_path(greetings, 'hey')
-    True
-    >>> has_path(greetings, 'bye')
-    False
-    """
+    spell out a particular word."""
 
     ###############
     # My Solution #
@@ -389,14 +273,7 @@ def par2(r1, r2):
 
 
 def check_par():
-    """Return two intervals that give different results for parallel resistors.
-
-    >>> r1, r2 = check_par()
-    >>> x = par1(r1, r2)
-    >>> y = par2(r1, r2)
-    >>> lower_bound(x) != lower_bound(y) or upper_bound(x) != upper_bound(y)
-    True
-    """
+    """Return two intervals that give different results for parallel resistors."""
 
     ###############
     # My Solution #
@@ -413,13 +290,7 @@ def multiple_references_explanation():
 
 def quadratic(x, a, b, c):
     """Return the interval that is the range of the quadratic defined by
-    coefficients a, b, and c, for domain interval x.
-
-    >>> str_interval(quadratic(interval(0, 2), -2, 3, -1))
-    '-3 to 0.125'
-    >>> str_interval(quadratic(interval(1, 3), 2, -3, 1))
-    '0 to 10'
-    """
+    coefficients a, b, and c, for domain interval x."""
 
     ###############
     # My Solution #
