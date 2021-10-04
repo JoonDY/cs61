@@ -8,8 +8,6 @@ def lambda_curry2(func):
 
     return lambda x: lambda y: func(x,y)
 
-
-
 def count_cond(condition):
     """Returns a function with one parameter N that counts all the numbers from
     1 to N that satisfy the two-argument predicate function Condition, where
@@ -30,8 +28,6 @@ def count_cond(condition):
     
     return lambda n: count_num(n)
 
-
-
 def compose1(f, g):
     """Return the composition function which given x, computes f(g(x))."""
 
@@ -40,8 +36,6 @@ def compose1(f, g):
     ###############
 
     return lambda x: f(g(x))
-
-
 
 def composite_identity(f, g):
     """
@@ -60,8 +54,6 @@ def composite_identity(f, g):
         return False
 
     return lambda x: is_true(x)
-
-
 
 def cycle(f1, f2, f3):
     """Returns a function that is itself a higher-order function."""

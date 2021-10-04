@@ -27,7 +27,6 @@ def choose(paragraphs, select, k):
     else:
         return paragraphs[k]
 
-
 def about(topic):
     """Return a select function that returns whether a paragraph contains one
     of the words in TOPIC."""
@@ -46,8 +45,6 @@ def about(topic):
         return any(word in new_paragraph for word in topic)
     
     return select
-
-
 
 def accuracy(typed, reference):
     """Return the accuracy (percentage of words typed correctly) of TYPED
@@ -74,8 +71,6 @@ def accuracy(typed, reference):
 
     return accuracy/len(typed_words)*100
 
-
-
 def wpm(typed, elapsed):
     """Return the words-per-minute (WPM) of the TYPED string."""
 
@@ -90,8 +85,6 @@ def wpm(typed, elapsed):
     minutes = elapsed / 60
 
     return words / minutes
-
-
 
 def autocorrect(user_word, valid_words, diff_function, limit):
     """Returns the element of VALID_WORDS that has the smallest difference
@@ -114,9 +107,6 @@ def autocorrect(user_word, valid_words, diff_function, limit):
         return user_word
     
     return min(valid, key=valid.get)
-
-
-
 
 def shifty_shifts(start, goal, limit):
     """A diff function for autocorrect that determines how many letters
@@ -146,8 +136,6 @@ def shifty_shifts(start, goal, limit):
     
     return helper(start, goal, len_diff)
 
-
-
 def pawssible_patches(start, goal, limit):
     """A diff function that computes the edit distance from START to GOAL."""
 
@@ -169,8 +157,6 @@ def pawssible_patches(start, goal, limit):
         remove_diff = pawssible_patches(start[1:], goal, limit - 1)
         substitute_diff = pawssible_patches(start[1:], goal[1:], limit - 1)
         return min(add_diff, remove_diff, substitute_diff) + 1
-
-
 
 def final_diff(start, goal, limit):
     """A diff function. If you implement this function, it will be used."""
@@ -203,8 +189,6 @@ def report_progress(typed, prompt, user_id, send):
 
     return ratio
 
-
-
 def fastest_words_report(times_per_player, words):
     """Return a text description of the fastest words typed by each player."""
     game = time_per_word(times_per_player, words)
@@ -214,8 +198,6 @@ def fastest_words_report(times_per_player, words):
         words = ','.join(fastest[i])
         report += 'Player {} typed these fastest: {}\n'.format(i + 1, words)
     return report
-
-
 
 def time_per_word(times_per_player, words):
     """Given timing data, return a game data abstraction, which contains a list
@@ -243,8 +225,6 @@ def time_per_word(times_per_player, words):
     
     return game(words, times)
 
-
-
 def game(words, times):
     """A data abstraction containing all words typed and their times."""
     assert all([type(w) == str for w in words]), 'words should be a list of strings'
@@ -253,23 +233,18 @@ def game(words, times):
     assert all([len(t) == len(words) for t in times]), 'There should be one word per time.'
     return [words, times]
 
-
-
 def word_at(game, word_index):
     """A selector function that gets the word with index word_index"""
     assert 0 <= word_index < len(game[0]), "word_index out of range of words"
     return game[0][word_index]
 
-
 def all_words(game):
     """A selector function for all the words in the game"""
     return game[0]
 
-
 def all_times(game):
     """A selector function for all typing times for all players"""
     return game[1]
-
 
 def time(game, player_num, word_index):
     """A selector function for the time it took player_num to type the word at word_index"""
@@ -277,12 +252,9 @@ def time(game, player_num, word_index):
     assert player_num < len(game[1]), "player_num out of range of players"
     return game[1][player_num][word_index]
 
-
 def game_string(game):
     """A helper function that takes in a game object and returns a string representation of it"""
     return "game(%s, %s)" % (game[0], game[1])
-
-
 
 def fastest_words(game):
     """Return a list of lists of which words each player typed fastest.
@@ -325,9 +297,8 @@ def fastest_words(game):
 
     return results
 
-
-
 enable_multiplayer = True
+
 
 ##########################
 # Command Line Interface #
@@ -367,7 +338,6 @@ def run_typing_test(topics):
         if input().strip() == 'q':
             return
         i += 1
-
 
 @main
 def run(*args):

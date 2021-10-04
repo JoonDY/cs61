@@ -101,8 +101,6 @@ def balanced(m):
     else:
         return balanced(end(left(m))) and balanced(end(right(m)))  
 
-
-
 def totals_tree(m):
     """Return a tree representing the mobile with its total weight at the root."""
 
@@ -117,9 +115,6 @@ def totals_tree(m):
         r_branch = tree(totals_tree(end(right(m))))
         branch = sum([l_branch,r_branch], [])
         return tree(total_weight(m), branch)
-
-    
-
 
 def replace_leaf(t, find_value, replace_value):
     """Returns a new tree where every leaf value equal to find_value has
@@ -138,7 +133,6 @@ def replace_leaf(t, find_value, replace_value):
         branch = [replace_leaf(b, find_value, replace_value) for b in branches(t)]
         return tree(label(t), branch)
 
-
 def preorder(t):
     """Return a list of the entries in this tree in the order that they
     would be visited by a preorder traversal (see problem description)."""
@@ -154,8 +148,7 @@ def preorder(t):
             accumulator(b, total)
         return results
     
-    return accumulator(t, results)
-        
+    return accumulator(t, results)   
 
 def has_path(t, word):
     """Return whether there is a path in a tree where the entries along the path
@@ -178,11 +171,9 @@ def has_path(t, word):
                 
     return accumulator(t, '', [label(t)])
 
-
 def interval(a, b):
     """Construct an interval from a to b."""
     return [a, b]
-
 
 def lower_bound(x):
     """Return the lower bound of interval x."""
@@ -193,7 +184,6 @@ def lower_bound(x):
 
     return min(x)
 
-
 def upper_bound(x):
     """Return the upper bound of interval x."""
 
@@ -203,12 +193,10 @@ def upper_bound(x):
 
     return max(x)
 
-
 def str_interval(x):
     """Return a string representation of interval x.
     """
     return '{0} to {1}'.format(lower_bound(x), upper_bound(x))
-
 
 def add_interval(x, y):
     """Return an interval that contains the sum of any value in interval x and
@@ -216,7 +204,6 @@ def add_interval(x, y):
     lower = lower_bound(x) + lower_bound(y)
     upper = upper_bound(x) + upper_bound(y)
     return interval(lower, upper)
-
 
 def mul_interval(x, y):
     """Return the interval that contains the product of any value in x and any
@@ -232,7 +219,6 @@ def mul_interval(x, y):
     p4 = upper_bound(x) * upper_bound(y)
     return interval(min(p1, p2, p3, p4), max(p1, p2, p3, p4))
 
-
 def sub_interval(x, y):
     """Return the interval that contains the difference between any value in x
     and any value in y."""
@@ -245,7 +231,6 @@ def sub_interval(x, y):
     lowest = lower_bound(x) - upper_bound(y)
     highest = upper_bound(x) - lower_bound(y)
     return interval(lowest, highest)
-
 
 def div_interval(x, y):
     """Return the interval that contains the quotient of any value in x divided by
@@ -260,17 +245,14 @@ def div_interval(x, y):
     reciprocal_y = interval(1/upper_bound(y), 1/lower_bound(y))
     return mul_interval(x, reciprocal_y)
 
-
 def par1(r1, r2):
     return div_interval(mul_interval(r1, r2), add_interval(r1, r2))
-
 
 def par2(r1, r2):
     one = interval(1, 1)
     rep_r1 = div_interval(one, r1)
     rep_r2 = div_interval(one, r2)
     return div_interval(one, add_interval(rep_r1, rep_r2))
-
 
 def check_par():
     """Return two intervals that give different results for parallel resistors."""
@@ -283,10 +265,8 @@ def check_par():
     r2 = interval(-2, -1) 
     return r1, r2
 
-
 def multiple_references_explanation():
     return """The multiple reference problem..."""
-
 
 def quadratic(x, a, b, c):
     """Return the interval that is the range of the quadratic defined by
@@ -308,9 +288,6 @@ def quadratic(x, a, b, c):
         return interval(min(upper, lower, peak), max(upper, lower, peak))
     else:
         return interval(min(upper, lower), max(upper,lower))
-    
-
-
 
 # Tree ADT
 

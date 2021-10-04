@@ -14,8 +14,6 @@ def falling(n, k):
     
     return total 
 
-
-
 def sum_digits(y):
     """Sum all the digits of y."""
 

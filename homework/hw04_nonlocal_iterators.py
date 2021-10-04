@@ -21,7 +21,6 @@ def make_bank(balance):
     
     return bank
 
-
 def make_withdraw(balance, password):
     """Return a password-protected withdraw function."""
 
@@ -51,8 +50,6 @@ def make_withdraw(balance, password):
         return 'Incorrect password'
 
     return withdraw
-        
-
 
 def repeated(t, k):
     """Return the first value in iterator T that appears K times in a row. Iterate through the items such that
@@ -79,8 +76,6 @@ def repeated(t, k):
             return current
         prev = current
         
-            
-
 def permutations(seq):
     """Generates all permutations of the given sequence. Each permutation is a
     list of the elements in SEQ in a different order. The permutations may be
@@ -98,8 +93,6 @@ def permutations(seq):
         for perm in permutations(seq[1:]):
             for i in range(len(seq)):
                 yield perm[:i] + seq[0:1] + perm[i:]
-         
-
 
 def make_joint(withdraw, old_pass, new_pass):
     """Return a password-protected withdraw function that has joint access to
@@ -122,8 +115,6 @@ def make_joint(withdraw, old_pass, new_pass):
     passwords.extend([old_pass, new_pass])
     return joint
 
-
-
 def naturals():
     """A generator function that yields the infinite sequence of natural
     numbers, starting at 1."""
@@ -131,8 +122,6 @@ def naturals():
     while True:
         yield i
         i += 1
-
-
 
 def remainders_generator(m):
     """

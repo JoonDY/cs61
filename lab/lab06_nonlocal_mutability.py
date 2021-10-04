@@ -12,8 +12,6 @@ def make_adder_inc(a):
         return result
 
     return add
-    
-
 
 def make_fib():
     """Returns a function that returns the next Fibonacci number
@@ -39,8 +37,6 @@ def make_fib():
             return result
 
     return fib
-        
-
 
 def insert_items(lst, entry, elem):
 

@@ -51,15 +51,11 @@ def if_function(condition, true_result, false_result):
     else:
         return false_result
 
-
-
 def with_if_statement():
     if c():
         return t()
     else:
         return f()
-
-
 
 def with_if_function():
     return if_function(c(), t(), f())

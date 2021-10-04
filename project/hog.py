@@ -6,6 +6,7 @@ from ucb import main, trace, interact
 GOAL_SCORE = 100  # The goal of Hog is to score 100 points.
 FIRST_101_DIGITS_OF_PI = 31415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679
 
+
 ######################
 # Phase 1: Simulator #
 ######################
@@ -41,7 +42,6 @@ def roll_dice(num_rolls, dice=six_sided):
         score=1
 
     return score
-   
 
 def free_bacon(score):
     """Return the points scored from rolling 0 dice (Free Bacon).
@@ -59,7 +59,6 @@ def free_bacon(score):
     pi = pi//(10**(100-score))
 
     return pi % 10 + 3
-
 
 
 def take_turn(num_rolls, opponent_score, dice=six_sided):
@@ -85,7 +84,6 @@ def take_turn(num_rolls, opponent_score, dice=six_sided):
     else:
         return roll_dice(num_rolls, dice)
 
-
 def extra_turn(player_score, opponent_score):
     """Return whether the player gets an extra turn."""
 
@@ -95,7 +93,6 @@ def extra_turn(player_score, opponent_score):
 
     return (pig_pass(player_score, opponent_score) or
             swine_align(player_score, opponent_score))
-
 
 def swine_align(player_score, opponent_score):
     """Return whether the player gets an extra turn due to Swine Align.
@@ -122,7 +119,6 @@ def swine_align(player_score, opponent_score):
     
     return False
 
-
 def pig_pass(player_score, opponent_score):
     """Return whether the player gets an extra turn due to Pig Pass.
 
@@ -138,16 +134,13 @@ def pig_pass(player_score, opponent_score):
     else:
         return False
 
-
 def other(who):
     """Return the other player, for a player WHO numbered 0 or 1."""
     return 1 - who
 
-
 def silence(score0, score1):
     """Announce nothing (see Phase 2)."""
     return silence
-
 
 def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
          goal=GOAL_SCORE, say=silence):
@@ -206,8 +199,6 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
     return score0, score1
 
 
-
-
 #######################
 # Phase 2: Commentary #
 #######################
@@ -217,7 +208,6 @@ def say_scores(score0, score1):
     """A commentary function that announces the score for each player."""
     print("Player 0 now has", score0, "and Player 1 now has", score1)
     return say_scores
-
 
 def announce_lead_changes(last_leader=None):
     """Return a commentary function that announces lead changes."""
@@ -238,13 +228,11 @@ def announce_lead_changes(last_leader=None):
         return announce_lead_changes(leader)
     return say
 
-
 def both(f, g):
     """Return a commentary function that says what f says, then what g says."""
     def say(score0, score1):
         return both(f(score0, score1), g(score0, score1))
     return say
-
 
 def announce_highest(who, last_score=0, running_high=0):
     """Return a commentary function that announces when WHO's score
@@ -290,7 +278,6 @@ def always_roll(n):
         return n
     return strategy
 
-
 def make_averaged(original_function, trials_count=1000):
     """Return a function that returns the average value of ORIGINAL_FUNCTION
     when called.
@@ -311,7 +298,6 @@ def make_averaged(original_function, trials_count=1000):
         return results/trials_count
     
     return return_average
-
 
 def max_scoring_num_rolls(dice=six_sided, trials_count=1000):
     """Return the number of dice (1 to 10) that gives the highest average turn
@@ -335,7 +321,6 @@ def max_scoring_num_rolls(dice=six_sided, trials_count=1000):
 
     return result, max_roll
 
-
 def winner(strategy0, strategy1):
     """Return 0 if strategy0 wins against strategy1, and 1 otherwise."""
     score0, score1 = play(strategy0, strategy1)
@@ -343,7 +328,6 @@ def winner(strategy0, strategy1):
         return 0
     else:
         return 1
-
 
 def average_win_rate(strategy, baseline=always_roll(4)):
     """Return the average win rate of STRATEGY against BASELINE. Averages the
@@ -353,7 +337,6 @@ def average_win_rate(strategy, baseline=always_roll(4)):
     win_rate_as_player_1 = make_averaged(winner)(baseline, strategy)
 
     return (win_rate_as_player_0 + win_rate_as_player_1) / 2
-
 
 def run_experiments():
     """Run a series of strategy experiments and report results."""
@@ -373,8 +356,6 @@ def run_experiments():
     if True:  # Change to True to test final_strategy
         print('final_strategy win rate:', average_win_rate(final_strategy))
 
-
-
 def bacon_strategy(score, opponent_score, cutoff=8, num_rolls=6):
     """This strategy rolls 0 dice if that gives at least CUTOFF points, and
     rolls NUM_ROLLS otherwise.
@@ -388,7 +369,6 @@ def bacon_strategy(score, opponent_score, cutoff=8, num_rolls=6):
         return 0
     else:
         return num_rolls
-
 
 def extra_turn_strategy(score, opponent_score, cutoff=8, num_rolls=6):
     """This strategy rolls 0 dice when it triggers an extra turn. It also
@@ -408,10 +388,10 @@ def extra_turn_strategy(score, opponent_score, cutoff=8, num_rolls=6):
     return bacon_strategy(score, opponent_score, cutoff, num_rolls) 
 
 
-
 ##########################
 # Command Line Interface #
 ##########################
+
 
 # NOTE: Functions in this section do not need to be changed. They use features
 # of Python not yet covered in the course.

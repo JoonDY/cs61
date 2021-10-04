@@ -13,7 +13,6 @@ def couple(s, t):
     
     return new_list
 
-
 from math import sqrt
 
 def distance(city_a, city_b):
@@ -46,8 +45,6 @@ def closer_city(lat, lon, city_a, city_b):
     else:
         return get_name(city_a)
 
-
-
 def make_city(name, lat, lon):
     if change_abstraction.changed:
         return {"name" : name, "lat" : lat, "lon" : lon}
@@ -77,7 +74,6 @@ def change_abstraction(change):
 
 change_abstraction.changed = False
 
-
 def berry_finder(t):
     """Returns True if t contains a node with the value 'berry' and 
     False otherwise."""
@@ -93,8 +89,6 @@ def berry_finder(t):
             if berry_finder(b) == True:
                 return True
         return False
-
-
 
 def sprout_leaves(t, leaves):
     """Sprout new leaves containing the data in leaves at each leaf in
@@ -113,8 +107,6 @@ def sprout_leaves(t, leaves):
         new_branches = [sprout_leaves(b, leaves) for b in branches(t)]
         return tree(label(t), new_branches)
 
-
-
 def coords(fn, seq, lower, upper):
 
     ###############
@@ -122,8 +114,6 @@ def coords(fn, seq, lower, upper):
     ###############
 
     return [[x]+[fn(x)] for x in seq if fn(x) <= upper and fn(x) >= lower]
-
-
 
 def riffle(deck):
     """Produces a single, perfect riffle shuffle of DECK, consisting of
@@ -142,8 +132,6 @@ def riffle(deck):
 
     return sum([[deck[card]] + [deck[(card+int(len(deck)/2))]] for card in range(0, int(len(deck)/2))], [])
 
-
-
 def add_trees(t1, t2):
 
     ###############
@@ -158,9 +146,7 @@ def add_trees(t1, t2):
         new_t1 = tree(label(t1), branches_t1)
         return add_trees(new_t1, t2)
     else:
-        return add_trees(t2, t1)
-
-          
+        return add_trees(t2, t1)       
 
 def build_successors_table(tokens):
     """Return a dictionary: keys are words; values are lists of successors."""
@@ -179,8 +165,6 @@ def build_successors_table(tokens):
         prev = word
     return table
 
-
-
 def construct_sent(word, table):
     """Prints a random sentence starting with word, sampling from
     table."""
@@ -196,8 +180,6 @@ def construct_sent(word, table):
         word = random.choice(table[word])
     return result.strip() + word
 
-
-
 def shakespeare_tokens(path='shakespeare.txt', url='http://composingprograms.com/shakespeare.txt'):
     """Return the words of Shakespeare's plays as a list."""
     import os
@@ -208,15 +190,12 @@ def shakespeare_tokens(path='shakespeare.txt', url='http://composingprograms.com
         shakespeare = urlopen(url)
         return shakespeare.read().decode(encoding='ascii').split()
 
-
 tokens = shakespeare_tokens()
 table = build_successors_table(tokens)
-
 
 def random_sent():
     import random
     return construct_sent(random.choice(table['.']), table)
-
 
 # Tree ADT
 
@@ -273,7 +252,6 @@ def change_abstraction(change):
 
 change_abstraction.changed = False
 
-
 def print_tree(t, indent=0):
     """Print a representation of this tree in which each node is
     indented by two spaces times its depth from the root.
@@ -307,4 +285,3 @@ def copy_tree(t):
     5
     """
     return tree(label(t), [copy_tree(b) for b in branches(t)])
-

@@ -15,8 +15,6 @@ def num_eights(x):
             return num_eights(x//10) + 1
         else:
             return num_eights(x//10)
-   
-
 
 def pingpong(n):
     """Return the nth element of the ping-pong sequence."""
@@ -37,7 +35,6 @@ def pingpong(n):
 
 
     return helper()
-
 
 def missing_digits(n):
     """Given a number a that is in sorted, increasing order,
@@ -61,7 +58,6 @@ def missing_digits(n):
     #             return helper(n%10, n//10%10, count, n//10)
     # return helper(0, 0, 0, n)  
 
-
     if n < 10:
         return 0
     else:
@@ -69,7 +65,6 @@ def missing_digits(n):
             return ((n % 10) - (n//10%10) - 1) + missing_digits(n//10)
         else:
             return missing_digits(n//10)
-
 
 def next_largest_coin(coin):
     """Return the next coin."""
