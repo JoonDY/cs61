@@ -115,13 +115,6 @@ def make_joint(withdraw, old_pass, new_pass):
     passwords.extend([old_pass, new_pass])
     return joint
 
-def naturals():
-    """A generator function that yields the infinite sequence of natural
-    numbers, starting at 1."""
-    i = 1
-    while True:
-        yield i
-        i += 1
 
 def remainders_generator(m):
     """

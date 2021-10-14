@@ -1,7 +1,3 @@
-""" Homework 1: Control """
-
-from operator import add, sub
-
 def a_plus_abs_b(a, b):
     """Return a+abs(b), but without calling abs."""
 
@@ -40,33 +36,6 @@ def largest_factor(x):
         i+=1   
 
     return max(factors)     
-
-def if_function(condition, true_result, false_result):
-    """Return true_result if condition is a true value, and
-    false_result otherwise."""
-
-    if condition:
-        return true_result
-    else:
-        return false_result
-
-def with_if_statement():
-    if c():
-        return t()
-    else:
-        return f()
-
-def with_if_function():
-    return if_function(c(), t(), f())
-
-def c():
-    return False
-
-def t():
-    return print(5)
-
-def f():
-    return print(6)
 
 def hailstone(x):
     """Print the hailstone sequence starting at x and return its

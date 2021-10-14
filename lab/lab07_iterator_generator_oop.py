@@ -1,11 +1,3 @@
-def naturals():
-    """A generator function that yields the infinite sequence of natural
-    numbers, starting at 1."""
-    i = 1
-    while True:
-        yield i
-        i += 1
-
 def scale(it, multiplier):
     """Yield elements of the iterable it scaled by a number multiplier."""
 
@@ -31,8 +23,6 @@ def hailstone(n):
 
 
 # Magic the Lambda-ing!
-
-
 import random
 
 class Card:
